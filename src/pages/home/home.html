@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-input [(ngModel)]="username" placeholder="Username"></ion-input>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let data of messages">
+      <ion-item *ngIf="username === data.username" style="border-right: solid 5px red;">
+        <p class="chat-text" item-left>
+          <strong>{{data.username}}: </strong>
+          {{data.message}}
+        </p>
+        <p class="chat-time" item-right>
+          {{data.date | date:'dd/MM/yyyy'}}
+        </p>
+      </ion-item>
+      <ion-item *ngIf="username !== data.username" style="border-right: solid 5px green;">
+        <p class="chat-text" item-left>
+          <strong>{{data.username}}: </strong>
+          {{data.message}}
+        </p>
+        <p class="chat-time" item-right>
+          {{data.date | date:'dd/MM/yyyy'}}
+        </p>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <form #f="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-80>
+          <ion-input [(ngModel)]="chat" name="chatText" required placeholder="type here..."></ion-input>
+        </ion-col>
+        <ion-col width-20 center>
+          <button (click)="chatSend(f.value, f.valid)" ion-button color="light" full [disabled]="f.valid === false">send</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-footer>
