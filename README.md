@@ -28,3 +28,4 @@ ionic 2 socket.io
 - Facebook: https://www.facebook.com/ardyhim/
 - Twitter: https://twitter.com/ardyhim
 - Github: https://github.com/ardyhim
+- Youtube: https://youtube.com/ardyhim
